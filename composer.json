@@ -1,0 +1,24 @@
+{
+    "name": "myProject",
+    "description": "Project Debug",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "jquery/jquery",
+                "version": "1.10.2",
+                "dist": {
+                    "url": "http://code.jquery.com/jquery-1.10.2.js",
+                    "type": "file" 
+                }
+            }
+        }
+    ], 
+    "minimum-stability": "dev",    
+    "require": {
+        "sopinet/composergeneric": "dev-master" 
+    }
+}
