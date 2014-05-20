@@ -2,6 +2,9 @@
 =======
 BasicSymfony
 ============
+Console
+<pre>cd /var/www/</pre>
+<pre>git clone https://github.com/sopinet/BasicSymfony.git YourProjectName</pre>
 
 Download the project<br>
 Change parameters.yml with your configuration database<br>
