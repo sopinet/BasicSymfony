@@ -12,6 +12,8 @@ Execute:
 <pre>curl -sS https://getcomposer.org/installer | php</pre>
 if you don't have installed curl:
 <pre>php -r "readfile('https://getcomposer.org/installer');" | php</pre>
+
+Generate vendors
 <pre>sh scripts/composerUpdate.sh</pre>
 
 Clean caché
