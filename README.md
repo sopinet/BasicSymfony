@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Symfony Standard Edition
 ========================
 
@@ -168,3 +169,9 @@ Enjoy!
 [11]: http://symfony.com/doc/2.4/cookbook/logging/monolog.html
 [12]: http://symfony.com/doc/2.4/cookbook/assetic/asset_management.html
 [13]: http://symfony.com/doc/2.4/bundles/SensioGeneratorBundle/index.html
+=======
+BasicSymfony
+============
+
+Easy download a project Symfony2 with the most important bundles and all configuration required
+>>>>>>> 08103375f2738bc0a099a3e4419514f4d48bb74a
