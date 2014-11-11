@@ -1,5 +1,5 @@
 {
-    "name": "myProject",
+    "name": "my-project",
     "description": "Project Debug",
     "autoload": {
         "psr-0": { "": "src/" }
@@ -19,6 +19,6 @@
     ], 
     "minimum-stability": "dev",    
     "require": {
-        "sopinet/composergeneric": "dev-master" 
+        "sopinet/composergeneric": "dev-master"
     }
 }
