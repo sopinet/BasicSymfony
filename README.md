@@ -14,12 +14,6 @@ if you don't have installed curl:
 Generate vendors
 <pre>sh scripts/composerUpdate.sh</pre>
 
-Generate bootstrap.php.cache
-<pre>sh scripts/generateBootstrapCache.sh</pre>
-
-Update assets
-<pre>sh scripts/updateAssets.sh</pre>
-
 Clean caché
 <pre>sh scripts/clean.sh</pre>
 
