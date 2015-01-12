@@ -12,10 +12,10 @@ if you don't have installed curl:
 <pre>php -r "readfile('https://getcomposer.org/installer');" | php</pre>
 
 Generate vendors
-<pre>sh scripts/composerUpdate.sh</pre>
+<pre>sh scripts/composer_update.sh</pre>
 
 Clean caché
-<pre>sh scripts/clean.sh</pre>
+<pre>sh scripts/cache_clear.sh</pre>
 
 Change repository
 <pre>git remote set-url origin https://github.com/USERNAME/YOUREPOSITORY.git</pre>
