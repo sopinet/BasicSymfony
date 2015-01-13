@@ -22,7 +22,7 @@
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "sensio/generator-bundle": "~2.3",
         "kriswallsmith/assetic": "1.2.*",
-        "sonata-project/admin-bundle": "~2.4",
+        "sonata-project/admin-bundle": "dev-master",
         "sonata-project/doctrine-extensions": "1.*",
         "sonata-project/easy-extends-bundle" : "2.1.*",
         "sonata-project/cache-bundle": "dev-master",
