@@ -21,3 +21,9 @@ Change repository
 <pre>git remote set-url origin https://github.com/USERNAME/YOUREPOSITORY.git</pre>
 
 That's all!
+
+¿ERRORES? (TODO: Translate to English)
+=========
+¿Has encontrado errores?
+- En ese caso, antes de hacer el cambio del repositorio por el tuyo, haz un git commit / push y mándanos los errores que hayas arreglado corregidos
+- Gracias
