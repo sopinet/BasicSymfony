@@ -4,6 +4,15 @@ parameters:
 #    parameter_name: value
 
 services:
+    app.login_success_handler:
+        class:  AppBundle\Authentication\CheckUser
+        arguments:  ['@service_container', '@router']
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }
+
+    apihelper:
+        class: AppBundle\Services\ApiHelper
+        arguments: ["@doctrine.orm.entity_manager", "@fos_rest.view_handler"]
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]

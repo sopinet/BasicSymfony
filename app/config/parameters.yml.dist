@@ -18,3 +18,9 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    sopinet_user_facebook_id: "YOURID-FACEBOOK"
+    sopinet_user_facebook_secret: "YOURSECRET-FACEBOOK"
+    sopinet_user_google_id: "YOURID-GOOGLE"
+    sopinet_user_google_secret: "YOURSECRET-GOOGLE"
+    sopinet_user_sucess: "app.login_success_handler"

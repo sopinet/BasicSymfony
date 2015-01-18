@@ -38,6 +38,8 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            new Sopinet\UserBundle\SopinetUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
