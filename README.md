@@ -11,11 +11,19 @@ Execute:
 if you don't have installed curl:
 <pre>php -r "readfile('https://getcomposer.org/installer');" | php</pre>
 
-Generate vendors
-<pre>sh scripts/composer_update.sh</pre>
+First installation (generate bundles)
+<pre>sh scripts/composer_install.sh</pre>
+
+It required to you set your database (you need create it first)
+
+Update SCHEMA (for fos_user / sonata)
+<pre>sh scripts/update_schema.sh</pre>
 
 Clean caché
 <pre>sh scripts/cache_clear.sh</pre>
+
+Create superAdmin user
+<pre>sh scripts/create_superadmin.sh USER EMAIL@EMAIL.COM PLAIN_PASSWORD</pre>
 
 Change repository
 <pre>git remote set-url origin https://github.com/USERNAME/YOUREPOSITORY.git</pre>
