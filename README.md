@@ -7,9 +7,6 @@ Console
 Change parameters.yml with your configuration database<br>
 
 Execute: 
-<pre>curl -sS https://getcomposer.org/installer | php</pre>
-if you don't have installed curl:
-<pre>php -r "readfile('https://getcomposer.org/installer');" | php</pre>
 
 First installation (generate bundles)
 <pre>sh scripts/composer_install.sh</pre>
