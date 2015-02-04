@@ -16,6 +16,9 @@ It required to you set your database (you need create it first)
 Update SCHEMA (for fos_user / sonata)
 <pre>sh scripts/update_schema.sh</pre>
 
+Install assets
+<pre>sh scripts/assetic_install.sh</pre>
+
 Clean caché
 <pre>sh scripts/cache_clear.sh</pre>
 
