@@ -1,0 +1,7 @@
+Sonata\UserBundle\Model\User:
+    dateOfBirth:
+      expose: true
+      groups: [profile]
+    gender:
+      expose: true
+      groups: [user, profile]

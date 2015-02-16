@@ -76,22 +76,54 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-# SonataUser
-sonata_user:
-    security_acl: false
-
 # SonataAdmin
 sonata_admin:
     security:
         handler: sonata.admin.security.handler.role
 
-# FOSUser Configuration
+# FOS
 fos_user:
-    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
-    firewall_name: main
-    user_class: Application\Sonata\UserBundle\Entity\User
+    db_driver: orm
+    firewall_name: main # nombre anterior
+    user_class: Application\Sopinet\UserBundle\Entity\User
     group:
-       group_class: Application\Sonata\UserBundle\Entity\Group
+        group_class:   Application\Sopinet\UserBundle\Entity\Group
+
+# app/config/config.yml
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+
+# SonataUser
+sonata_user:
+    security_acl: false
+    manager_type: orm # can be orm or mongodb
+    class:                  # Entity Classes
+        user:               Application\Sopinet\UserBundle\Entity\User
+        group:              Application\Sopinet\UserBundle\Entity\Group
+    admin:
+        user:
+            class: Application\Sopinet\UserBundle\Admin\UserAdmin
+        group:
+            class: Application\Sopinet\UserBundle\Admin\GroupAdmin
+
+# JSM Serializer
+jms_serializer:
+  metadata:
+    auto_detection: true
+    directories:
+      FOSUserBundle:
+        namespace_prefix: "FOS\\UserBundle"
+        path: "@ApplicationSopinetUserBundle/Resources/config/serializer/fos"
+      SonataUserBundle:
+        namespace_prefix: "Sonata\\UserBundle"
+        path: "@ApplicationSopinetUserBundle/Resources/config/serializer/sonata"
+      ApplicationSopinetUserBundle:
+        namespace_prefix: "Sopinet\\UserBundle"
+        path: "@ApplicationSopinetUserBundle/Resources/config/serializer/"
 
 # Sonata Block
 sonata_block:
