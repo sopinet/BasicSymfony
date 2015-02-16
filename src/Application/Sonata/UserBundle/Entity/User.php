@@ -37,4 +37,54 @@ class User extends BaseUser
     {
         return $this->id;
     }
+
+    /**
+     * @ORM\OneToMany(targetEntity="\AppBundle\Entity\Product", mappedBy="owner")
+     */
+    protected $products;
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $groups;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add groups
+     *
+     * @param \Application\Sonata\UserBundle\Entity\Group $groups
+     * @return User
+     */
+    public function addGroup(\Application\Sonata\UserBundle\Entity\Group $groups)
+    {
+        $this->groups[] = $groups;
+
+        return $this;
+    }
+
+    /**
+     * Remove groups
+     *
+     * @param \Application\Sonata\UserBundle\Entity\Group $groups
+     */
+    public function removeGroup(\Application\Sonata\UserBundle\Entity\Group $groups)
+    {
+        $this->groups->removeElement($groups);
+    }
+
+    /**
+     * Get groups
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGroups()
+    {
+        return $this->groups;
+    }
 }
