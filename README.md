@@ -1,5 +1,11 @@
-BasicSymfony
+What is it?
+===========
+
+BasicSymfony is a Plug&Play installation/package for easy and fast Symfony deploy. Try it.
+
+Installation
 ============
+
 Console
 <pre>cd /var/www/</pre>
 <pre>git clone https://github.com/sopinet/BasicSymfony.git YourProjectName</pre>
