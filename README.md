@@ -1,3 +1,5 @@
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/84f19b4e-6135-457d-be83-56b684231595/big.png)](https://insight.sensiolabs.com/projects/84f19b4e-6135-457d-be83-56b684231595)
+
 What is it?
 ===========
 
