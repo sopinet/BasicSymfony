@@ -5,7 +5,6 @@ use FOS\RestBundle\View\ViewHandler;
 use  Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\View\View;
 use Doctrine\ORM\EntityManager;
-use JMS\Serializer\SerializationContext;
 
 class ApiHelper {
 

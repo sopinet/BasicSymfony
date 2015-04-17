@@ -2,9 +2,7 @@
  namespace Application\Sopinet\UserBundle\Entity;
 
  use Doctrine\ORM\Mapping as ORM;
- use Knp\DoctrineBehaviors\Model as ORMBehaviors;
  use Sopinet\UserBundle\Model\BaseUser as BaseUser;
- use JMS\Serializer\Annotation\Groups;
 
  #use FOS\UserBundle\Entity\User as BaseUser;
 
