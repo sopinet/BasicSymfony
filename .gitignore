@@ -14,6 +14,7 @@ web/css/*
 web/js/*
 web/uploads/*
 web/include/*
+web/config.php
 
 # -- Composer -----------------------------------------
 composer.phar
