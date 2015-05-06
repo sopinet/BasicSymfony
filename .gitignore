@@ -3,18 +3,38 @@ app/bootstrap.php.cache
 app/bootstrap_cache.php.cache
 app/config/parameters.ini
 app/config/parameters.yml
-
+app/SymfonyRequirements.php
 app/cache/*
 app/logs/*
 app/sessions/
 bin/*
 vendor/*
 web/bundles/*
-web/css/*
-web/js/*
 web/uploads/*
 web/include/*
-web/config.php
+web/css/*
+web/js/*
+
+# -- Sylius -----------------------------------------
+web/vendor/*
+
+# -- WordPress -----------------------------------------
+*.log
+web/blog/.htaccess
+web/blog/sitemap.xml
+web/blog/sitemap.xml.gz
+web/blog/wp-config.php
+web/blog/wp-config_prod.php
+web/blog/wp-content/advanced-cache.php
+web/blog/wp-content/backup-db/
+web/blog/wp-content/backups/
+web/blog/wp-content/blogs.dir/
+web/blog/wp-content/cache/
+web/blog/wp-content/upgrade/
+web/blog/wp-content/uploads/
+web/blog/wp-content/wp-cache-config.php
+=======
+./juanma
 
 # -- Composer -----------------------------------------
 composer.phar
