@@ -46,7 +46,8 @@
         "raulfraile/ladybug-bundle": "~1.0",
         "knplabs/doctrine-behaviors": "dev-master",
         "hwi/oauth-bundle": "0.4.*@dev",
-        "sopinet/userbundle": "1.2.*@dev"
+        "sopinet/userbundle": "1.2.*@dev",
+        "phpdocumentor/phpdocumentor": "2.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
