@@ -5,6 +5,16 @@ What is it?
 
 BasicSymfony is a Plug&Play installation/package for easy and fast Symfony deploy. Try it.
 
+Requirements
+============
+
+BasicSymfony includes phpdocumentor/template-zend that requires ext-xsl PHP extension to work. Symfony also requires intl PHP extension for multilanguage support. This can be installed through your package manager:
+
+```
+sudo apt-get install php5-xsl
+sudo apt-get install php5-intl
+```
+
 Installation
 ============
 
