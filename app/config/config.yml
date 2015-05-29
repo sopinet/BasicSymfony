@@ -127,3 +127,8 @@ sonata_block:
         sonata.block.service.action:
         sonata.block.service.rss:
         sonata.block.service.tableinput:
+
+# FOS Rest API
+fos_rest:
+    routing_loader:
+        default_format: json
