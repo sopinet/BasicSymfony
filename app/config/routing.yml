@@ -45,3 +45,7 @@ sonata_user_change_password:
     prefix: /profile
 # END SonataUser
 
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
+
