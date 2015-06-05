@@ -40,6 +40,7 @@ class AppKernel extends Kernel
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Sopinet\UserBundle\SopinetUserBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

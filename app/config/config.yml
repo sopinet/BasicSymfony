@@ -132,3 +132,6 @@ sonata_block:
 fos_rest:
     routing_loader:
         default_format: json
+
+# app/config/config.yml
+nelmio_api_doc: ~
