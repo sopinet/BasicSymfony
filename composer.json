@@ -18,7 +18,7 @@
         "sensio/distribution-bundle": "~3.0.12",
         "sensio/framework-extra-bundle": "~3.0",     
         "incenteev/composer-parameter-handler": "~2.0",
-        "doctrine/data-fixtures": "dev-master",
+        "doctrine/data-fixtures": "~1.1",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "sensio/generator-bundle": "~2.3",
         "kriswallsmith/assetic": "1.2.*",
