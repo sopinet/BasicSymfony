@@ -1,11 +1,11 @@
 <?php
 
-namespace Application\Sopinet\UserBundle\Admin;
+namespace Application\Sonata\UserBundle\Admin;
 
 use Sonata\AdminBundle\Form\FormMapper;
-use Sopinet\UserBundle\Admin\Model\BaseGroupAdmin;
+use Sonata\UserBundle\Admin\Model\UserAdmin as BaseUserAdmin;
 
-class GroupAdmin extends BaseGroupAdmin
+class UserAdmin extends BaseUserAdmin
 {
     /**
      * {@inheritdoc}
@@ -15,8 +15,8 @@ class GroupAdmin extends BaseGroupAdmin
         parent::configureFormFields($formMapper);
 
         $formMapper
-            ->with('customApp')
-            //->add('custom1')
+            ->with('YourAppName')
+            //->add('customField')
             // ...
             ->end()
         ;
