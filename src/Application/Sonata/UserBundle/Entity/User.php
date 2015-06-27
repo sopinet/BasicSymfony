@@ -29,6 +29,11 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * Profile picture from rrss
+     */
+    protected $profilepicture;
+
+    /**
      * Get id
      *
      * @return integer $id
@@ -36,5 +41,27 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set profilepicture
+     *
+     * @param string $profilepicture
+     * @return User
+     */
+    public function setProfilePicture($profilepicture)
+    {
+        $this->profilepicture = $profilepicture;
+        return $this;
+    }
+
+    /**
+     * Get profilepicture
+     *
+     * @return string
+     */
+    public function getProfilePicture()
+    {
+        return $this->profilepicture;
     }
 }

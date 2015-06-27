@@ -15,9 +15,9 @@ class UserAdmin extends BaseUserAdmin
         parent::configureFormFields($formMapper);
 
         $formMapper
-            ->with('YourAppName')
-            //->add('customField')
-            // ...
+            ->with('Sopinet')
+                ->add('profilepicture')
+                // ...
             ->end()
         ;
     }

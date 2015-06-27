@@ -9,7 +9,7 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-
+        <field name="profilepicture" type="string" column="profilepicture" length="500" nullable="true" />
     </entity>
 
 </doctrine-mapping>
