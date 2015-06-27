@@ -48,8 +48,3 @@ sonata_user_change_password:
 NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
     prefix:   /api/doc
-
-JMSTranslationBundle_ui:
-    resource: @JMSTranslationBundle/Controller/
-    type:     annotation
-    prefix:   /_trans
