@@ -2,7 +2,6 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "../../vendor/sopinet/userbundle/Sopinet/UserBundle/Resources/config/config.yml" }
     - { resource: ../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml }
 
 framework:
@@ -85,22 +84,25 @@ sonata_admin:
 fos_user:
     db_driver: orm
     firewall_name: main # nombre anterior
-    user_class: Application\Sopinet\UserBundle\Entity\User
+    user_class: Application\Sonata\UserBundle\Entity\User
     group:
-        group_class:   Application\Sopinet\UserBundle\Entity\Group
+        group_class:   Application\Sonata\UserBundle\Entity\Group
+        group_manager: sonata.user.orm.group_manager
+    service:
+        user_manager: sonata.user.orm.user_manager
 
 # SonataUser
 sonata_user:
     security_acl: false
     manager_type: orm # can be orm or mongodb
     class:                  # Entity Classes
-        user:               Application\Sopinet\UserBundle\Entity\User
-        group:              Application\Sopinet\UserBundle\Entity\Group
+        user:               Application\Sonata\UserBundle\Entity\User
+        group:              Application\Sonata\UserBundle\Entity\Group
     admin:
         user:
-            class: Application\Sopinet\UserBundle\Admin\UserAdmin
+            class: Application\Sonata\UserBundle\Admin\UserAdmin
         group:
-            class: Application\Sopinet\UserBundle\Admin\GroupAdmin
+            class: Application\Sonata\UserBundle\Admin\GroupAdmin
 
 # JSM Serializer
 jms_serializer:
@@ -109,13 +111,13 @@ jms_serializer:
     directories:
       FOSUserBundle:
         namespace_prefix: "FOS\\UserBundle"
-        path: "@ApplicationSopinetUserBundle/Resources/config/serializer/fos"
+        path: "@ApplicationSonataUserBundle/Resources/config/serializer/fos"
       SonataUserBundle:
         namespace_prefix: "Sonata\\UserBundle"
-        path: "@ApplicationSopinetUserBundle/Resources/config/serializer/sonata"
-      ApplicationSopinetUserBundle:
-        namespace_prefix: "Sopinet\\UserBundle"
-        path: "@ApplicationSopinetUserBundle/Resources/config/serializer/"
+        path: "@ApplicationSonataUserBundle/Resources/config/serializer/sonata"
+      ApplicationSonataUserBundle:
+        namespace_prefix: "Sonata\\UserBundle"
+        path: "@ApplicationSonataUserBundle/Resources/config/serializer/"
 
 # Sonata Block
 sonata_block:
@@ -135,3 +137,17 @@ fos_rest:
 
 # app/config/config.yml
 nelmio_api_doc: ~
+
+# HWIOAuthBundle
+hwi_oauth:
+    firewall_name: main
+    resource_owners:
+        facebook:
+            type: facebook
+            client_id: "%facebook_id%"
+            client_secret: "%facebook_secret%"
+            scope: "email"
+        google:
+            type: google
+            client_id: "%google_id%"
+            client_secret: "%google_secret%"

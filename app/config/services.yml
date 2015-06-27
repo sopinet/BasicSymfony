@@ -13,6 +13,8 @@ services:
     apihelper:
         class: AppBundle\Services\ApiHelper
         arguments: ["@doctrine.orm.entity_manager", "@fos_rest.view_handler"]
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+    sopinet_user_provider:
+        class: AppBundle\Security\Core\User\FOSUBUserProvider
+        #this is the place where the properties are passed to the UserProvider - see config.yml
+        arguments: [@fos_user.user_manager, { facebook: facebookUid, google: gplusUid }]

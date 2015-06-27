@@ -29,7 +29,6 @@ class AppKernel extends Kernel
             new Sonata\CacheBundle\SonataCacheBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
-            new Application\Sopinet\UserBundle\ApplicationSopinetUserBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
@@ -39,8 +38,8 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
-            new Sopinet\UserBundle\SopinetUserBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
