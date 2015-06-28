@@ -2,9 +2,9 @@
 
 namespace AppBundle\Services;
 use FOS\RestBundle\View\ViewHandler;
-use  Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\View\View;
-use Doctrine\ORM\EntityManager;
+use Doctrine\Bundle\DoctrineBundle\Registry;
 
 class ApiHelper {
 
@@ -13,8 +13,8 @@ class ApiHelper {
     const USERNOTVALID = "User not valid";
     const GENERALERROR = "General error";
 
-    public function __construct(EntityManager $entityManager, ViewHandler $viewHandler) {
-        $this->em = $entityManager;
+    public function __construct(Registry $doctrine, ViewHandler $viewHandler) {
+        $this->doctrine = $doctrine;
         $this->viewhandler=$viewHandler;
     }
 
@@ -79,7 +79,7 @@ class ApiHelper {
      */
     private function checkUser($email, $password){
 
-        $user = $this->em->getRepository('\Application\Sopinet\UserBundle\Entity\User')->findOneBy(array ("email"=>$email, "password"=>$password));
+        $user = $this->doctrine->getManager()->getRepository('\Application\Sonata\UserBundle\Entity\User')->findOneBy(array ("email"=>$email, "password"=>$password));
         //$user= $this->getDoctrine()->getRepository('\Application\Sonata\UserBundle\Entity\User')->findOneBy(array ("username"=>$email));
         if ($user == null){
             return false;
@@ -89,8 +89,7 @@ class ApiHelper {
 
     /**
      * Funcion que controla si el usuario está logueado o se comprueba con su email y pass
-     * @param String email
-     * @param String password
+     * * @param Request $request
      * @return bool
      */
     public  function checkPrivateAccess(Request $request) {
@@ -107,4 +106,4 @@ class ApiHelper {
     public function dumpVar($var){
         return $var;
     }
-} 
+}
