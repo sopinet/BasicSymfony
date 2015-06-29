@@ -39,6 +39,7 @@ class AppKernel extends Kernel
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new Bazinga\Bundle\FakerBundle\BazingaFakerBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
         );
 

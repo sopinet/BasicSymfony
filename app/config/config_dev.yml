@@ -52,14 +52,14 @@ assetic:
 bazinga_faker:
     orm: doctrine
     entities:
-        Application\Sonata\UserBundle\Entity\User:
-            number: 2 #the number of entities to generate
-            custom_formatters:
-                gender:   {  method: randomElement, parameters: [ [ '1', '0'] ] }
-                enabled:   {  method: randomElement, parameters: [ [ '1'] ] }
-                locked:   {  method: randomElement, parameters: [ [ '0'] ] }
-                expired:   {  method: randomElement, parameters: [ ['0'] ] }
-                credentialsExpired:   {  method: randomElement, parameters: [ ['0'] ] }
-                website: { method: url }
-                profilepicture: {  method: imageUrl }
+        #Application\Sonata\UserBundle\Entity\User:
+        #    number: 2 #the number of entities to generate
+        #    custom_formatters:
+        #        gender:   {  method: randomElement, parameters: [ [ '1', '0'] ] }
+        #        enabled:   {  method: randomElement, parameters: [ [ '1'] ] }
+        #        locked:   {  method: randomElement, parameters: [ [ '0'] ] }
+        #        expired:   {  method: randomElement, parameters: [ ['0'] ] }
+        #        credentialsExpired:   {  method: randomElement, parameters: [ ['0'] ] }
+        #        website: { method: url }
+        #        profilepicture: {  method: imageUrl }
         #Add other entities with the same format
