@@ -47,7 +47,8 @@
         "knplabs/doctrine-behaviors": "~1.1",
         "hwi/oauth-bundle": "dev-master#d7caff8",
         "sopinet/userbundle": "1.2.*@dev",
-        "phpdocumentor/phpdocumentor": "2.*"
+        "phpdocumentor/phpdocumentor": "2.*",
+        "willdurand/faker-bundle": "@stable"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
