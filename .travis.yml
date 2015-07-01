@@ -2,7 +2,7 @@ language: php
 
 before_script:
   - composer self-update
-  - composer install
+  - sudo composer install
   - mysql -e 'create database symfony;'
   - php app/console doctrine:database:create --env=test
   - php app/console doctrine:schema:create --env=test
