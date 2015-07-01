@@ -1,4 +1,4 @@
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/84f19b4e-6135-457d-be83-56b684231595/big.png)](https://insight.sensiolabs.com/projects/84f19b4e-6135-457d-be83-56b684231595) [![Build Status](https://travis-ci.org/sopinet/BasicSymfony.svg?branch=master)](https://travis-ci.org/sopinet/BasicSymfony)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/84f19b4e-6135-457d-be83-56b684231595/big.png)](https://insight.sensiolabs.com/projects/84f19b4e-6135-457d-be83-56b684231595) [![Build Status](https://travis-ci.org/sopinet/BasicSymfony.svg?branch=master)](https://travis-ci.org/sopinet/BasicSymfony) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sopinet/BasicSymfony/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sopinet/BasicSymfony/?branch=master)
 
 
 
