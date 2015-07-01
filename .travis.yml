@@ -2,12 +2,10 @@ language: php
 
 before_script:
   - composer self-update
-  - composer install
-  - mysql -e 'drop database if exists symfony;'
-  - mysql -e 'create database symfony;'
-  - php app/console doctrine:database:create --env=test
-  - php app/console doctrine:schema:create --env=test
-  - php app/console doctrine:fixtures:load -n --env=test
+  - sh scripts/composer_install.sh
+  - sh scripts/update_schema.sh
+  - sh scripts/assetic_install.sh
+  - sh scripts/cache_clear.sh
 
 script:
   - phpunit -c app
