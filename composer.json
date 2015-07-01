@@ -36,7 +36,6 @@
         "knplabs/knp-components": "~1.3",
         "knplabs/knp-paginator-bundle": "~2.3",
         "knplabs/knp-menu-bundle": "~2.0",
-        "stof/doctrine-extensions-bundle": "1.1.*",
         "a2lix/translation-form-bundle" : "~2.0",
         "friendsofsymfony/rest-bundle": "1.5.3",
         "friendsofsymfony/user-bundle" : "1.3.x-dev",
