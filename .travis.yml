@@ -1,0 +1,17 @@
+language: php
+
+before_script:
+  - composer self-update
+  - sh scripts/composer_install.sh
+  - mysql -e 'drop database if exists symfony;'
+  - mysql -e 'create database symfony;'
+  - sh scripts/update_schema.sh
+  - sh scripts/assetic_install.sh
+  - sh scripts/cache_clear.sh
+
+script:
+  - phpunit -c app
+
+notifications:
+  email:
+    -  llopez@sopinet.com

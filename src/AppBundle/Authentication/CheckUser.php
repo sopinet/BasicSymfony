@@ -22,4 +22,3 @@ class CheckUser implements AuthenticationSuccessHandlerInterface
 
     }
 }
-?>

@@ -2,9 +2,9 @@
 
 namespace AppBundle\Services;
 use FOS\RestBundle\View\ViewHandler;
-use  Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\View\View;
-use Doctrine\ORM\EntityManager;
+use Doctrine\Bundle\DoctrineBundle\Registry;
 
 class ApiHelper {
 
@@ -13,8 +13,8 @@ class ApiHelper {
     const USERNOTVALID = "User not valid";
     const GENERALERROR = "General error";
 
-    public function __construct(EntityManager $entityManager, ViewHandler $viewHandler) {
-        $this->em = $entityManager;
+    public function __construct(Registry $doctrine, ViewHandler $viewHandler) {
+        $this->doctrine = $doctrine;
         $this->viewhandler=$viewHandler;
     }
 
@@ -24,9 +24,13 @@ class ApiHelper {
      * @return Array $array mensaje con el estado
      */
     private function doDenied($msg=null) {
+        $array = array();
         $array['state'] = -1;
-        if($msg!=null)$array['msg'] = $msg;
-        else $array['msg'] = "Access Denied";
+        if($msg !== null)
+            $array['msg'] = $msg;
+        else
+            $array['msg'] = "Access Denied";
+
         return $array;
     }
 
@@ -58,17 +62,20 @@ class ApiHelper {
      * @return array Serie de datos
      */
     private function doOK($data) {
+        $ret = array();
+        $arr = array();
         $ret['state'] = 1;
         $ret['msg'] = "Ok";
+
         if($data == null) {
             $arr[] = null;
             $ret['data'] = $arr;
         }
         else
             $ret['data'] = $data;
+
         return $ret;
     }
-
 
     /**
      * Funcion que controla el usuario que envia datos a la API, sin estar logueado, con parámetros email y pass
@@ -78,28 +85,22 @@ class ApiHelper {
      * @return bool
      */
     private function checkUser($email, $password){
+        $user = $this->doctrine->getManager()->getRepository('\Application\Sonata\UserBundle\Entity\User')->findOneBy(array ("email"=>$email, "password"=>$password));
 
-        $user = $this->em->getRepository('\Application\Sopinet\UserBundle\Entity\User')->findOneBy(array ("email"=>$email, "password"=>$password));
-        //$user= $this->getDoctrine()->getRepository('\Application\Sonata\UserBundle\Entity\User')->findOneBy(array ("username"=>$email));
         if ($user == null){
             return false;
         }
+
         return $user;
     }
 
     /**
      * Funcion que controla si el usuario está logueado o se comprueba con su email y pass
-     * @param String email
-     * @param String password
+     * * @param Request $request
      * @return bool
      */
     public  function checkPrivateAccess(Request $request) {
         $user = $this->checkUser($request->get('email'), $request->get('password'));
-
-        //No es necesario
-        if($user == false) {
-            return false;
-        }
 
         return $user;
     }
@@ -107,4 +108,4 @@ class ApiHelper {
     public function dumpVar($var){
         return $var;
     }
-} 
+}

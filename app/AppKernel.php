@@ -32,13 +32,13 @@ class AppKernel extends Kernel
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle($this),
             new FOS\RestBundle\FOSRestBundle(),
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new Bazinga\Bundle\FakerBundle\BazingaFakerBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
         );
 

@@ -12,7 +12,7 @@ services:
 
     apihelper:
         class: AppBundle\Services\ApiHelper
-        arguments: ["@doctrine.orm.entity_manager", "@fos_rest.view_handler"]
+        arguments: ["@doctrine", "@fos_rest.view_handler"]
 
     sopinet_user_provider:
         class: AppBundle\Security\Core\User\FOSUBUserProvider

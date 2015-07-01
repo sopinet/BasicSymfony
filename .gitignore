@@ -99,6 +99,7 @@ $RECYCLE.BIN/
 
 # Linux
 .*
+!.travis.yml
 !.gitignore
 !.htaccess
 *~
