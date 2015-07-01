@@ -2,8 +2,8 @@ language: php
 
 before_script:
   - composer self-update
-  - php app/console doctrine:database:create --env=test
   - sh scripts/composer_install.sh
+  - php app/console doctrine:database:create --env=test
   - sh scripts/update_schema.sh
   - sh scripts/assetic_install.sh
   - sh scripts/cache_clear.sh
