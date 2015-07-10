@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo rm -rf app/cache/*
-sudo rm -rf app/logs/*
-sudo chmod 777 app/cache -R
-sudo chmod 777 app/logs -R
+rm -rf app/cache/*
+rm -rf app/logs/*
+chmod 777 app/cache -R
+chmod 777 app/logs -R
