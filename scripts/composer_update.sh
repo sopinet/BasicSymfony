@@ -1,4 +1,4 @@
 #!/bin/sh
 
-php composer.phar config --global discard-changes true
-php composer.phar update --no-interaction
+composer config --global discard-changes true
+composer update --no-interaction

@@ -2,7 +2,7 @@
 
 # Actualiza sólo un bundle, pasado como parámetro
 
-php composer.phar update $1
+composer update $1
 
-# php composer.phar update sopinet/uploadfiles-bundle
-# php composer.phar update sopinet/uploadfiles-bundle eko/googletranslatebundle
+# composer update sopinet/uploadfiles-bundle
+# composer update sopinet/uploadfiles-bundle eko/googletranslatebundle
