@@ -5,7 +5,7 @@ before_script:
   - sh scripts/composer_install.sh
   - mysql -e 'drop database if exists symfony;'
   - mysql -e 'create database symfony;'
-  - sh scripts/update_schema.sh
+  - sh scripts/schema_travis.sh
   - sh scripts/assetic_install.sh
   - sh scripts/cache_clear.sh
 
