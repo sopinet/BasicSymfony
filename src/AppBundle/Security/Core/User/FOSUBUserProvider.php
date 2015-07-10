@@ -22,7 +22,7 @@ class FOSUBUserProvider extends BaseClass
             $setter_id = $setter.'Uid';
             $setter_token = $setter.'Name';
             // create new user here
-            // TODO: Check email, if exist add service
+            // Check email, if exist add service
             $userE = $this->userManager->findUserBy(array("email" => $response->getEmail()));
             if (null === $userE) {
                 $user = $this->userManager->createUser();
@@ -45,7 +45,7 @@ class FOSUBUserProvider extends BaseClass
             $user->setEnabled(true);
             // Customfields
             $user->setProfilePicture($response->getProfilePicture());
-            //TODO: Save Locale, $user->setLocale($response->getLocale());
+            // Save Locale, $user->setLocale($response->getLocale());
             $this->userManager->updateUser($user);
             return $user;
         }
@@ -61,7 +61,7 @@ class FOSUBUserProvider extends BaseClass
         $user->$setter($response->getAccessToken());
 
         //update custom fields
-        //TODO: Check google response, facebook?
+        //Check google response, facebook?
         if ($service == "facebook") {
             $url = "http://graph.facebook.com/".$data['id']."/picture?type=normal";
             $user->setProfilePicture($url);

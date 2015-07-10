@@ -67,7 +67,7 @@ class ApiHelper {
         $ret['state'] = 1;
         $ret['msg'] = "Ok";
 
-        if($data == null) {
+        if($data === null) {
             $arr[] = null;
             $ret['data'] = $arr;
         }
@@ -87,7 +87,7 @@ class ApiHelper {
     private function checkUser($email, $password){
         $user = $this->doctrine->getManager()->getRepository('\Application\Sonata\UserBundle\Entity\User')->findOneBy(array ("email"=>$email, "password"=>$password));
 
-        if ($user == null){
+        if ($user === null){
             return false;
         }
 
