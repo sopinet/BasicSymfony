@@ -1,10 +1,14 @@
 #!/bin/sh
 
-# Crea un usuario administrador de fos_user
-# Requiere un email, del que extrae el usuario. Si no se suministra contraseña, será "admin"
+# Creates a fos_user admin user. Receives 2 command line parameters:
+#   MAIL: user email (mandatory)
+#   PASSWORD: user password (optional)
+# Username is derived from MAIL. If no PASSWORD is provided, it will be 'admin'
+# Use example:
+#   sh admin_create.sh MAIL [PASSWORD]
 
 if [ -z "$1" ]; then
-	echo "Parameter 'email' is required"
+	php app/console fos:user:create --super-admin
 	exit 0
 else
 	MAIL=$1;
