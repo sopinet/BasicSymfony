@@ -8,7 +8,7 @@
 #   sh admin_create.sh MAIL [PASSWORD]
 
 if [ -z "$1" ]; then
-	echo "Parameter 'email' is required"
+	php app/console fos:user:create --super-admin
 	exit 0
 else
 	MAIL=$1;
