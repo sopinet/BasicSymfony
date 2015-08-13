@@ -1,0 +1,31 @@
+- apt: pkg=apache2 state=latest
+  name: install
+  sudo: true
+
+- apache2_module: state=present name={{ item }}
+  name: install modules
+  notify: restart apache
+  with_items:
+  - rewrite
+  - vhost_alias
+  - headers
+  - expires
+  - filter
+
+- register: apache_version
+  shell: apache2 -v
+
+- name: change default apache2.4 site
+  notify: restart apache
+  sudo: true
+  template: src=vhost24.conf.tpl dest=/etc/apache2/sites-available/000-default.conf
+  when: apache_version.stdout.find('Apache/2.4.') != -1
+
+- name: change default apache2.2 site
+  notify: restart apache
+  sudo: true
+  template: src=vhost22.conf.tpl dest=/etc/apache2/sites-available/default
+  when: apache_version.stdout.find('Apache/2.2.') != -1
+
+- name: remove default assets
+  shell: rm -rf /var/www/html /var/www/index.html

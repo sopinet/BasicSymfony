@@ -1,0 +1,29 @@
+- apt: update_cache=yes
+  name: update apt
+  sudo: true
+
+- apt: pkg={{ item }} state=latest
+  name: install system packages
+  sudo: true
+  with_items:
+  - curl
+  - wget
+  - python-software-properties
+
+- apt: pkg={{ item }} state=latest
+  name: install extra packages
+  sudo: true
+  when: server.packages is defined
+  with_items: server.packages
+
+- name: configure the timezone
+  sudo: true
+  template: src=timezone.tpl dest=/etc/timezone
+
+- file: src=/usr/share/zoneinfo/{{server.timezone}} dest=/etc/localtime state=link force=yes backup=yes
+  name: more configuration for the timezone
+  sudo: true
+
+- name: set default system language pack
+  shell: locale-gen {{server.locale}}
+  sudo: true

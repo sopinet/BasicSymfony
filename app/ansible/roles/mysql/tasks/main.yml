@@ -1,0 +1,35 @@
+# Retrieve the current hostname, because {{ ansible_hostname }} still contains the old name
+- register: current_hostname
+  shell: hostname
+
+- apt: pkg={{ item }} state=latest
+  name: install packages
+  sudo: true
+  with_items:
+  - mysql-server
+  - mysql-client
+  - python-mysqldb
+
+- mysql_user: name=root host={{ item }} check_implicit_admin=yes password={{ mysql.root_password }} login_user=root login_password={{ mysql.root_password }}
+  name: update root password for all root accounts
+  with_items:
+  - '{{ current_hostname.stdout | lower }}'
+  - 127.0.0.1
+  - ::1
+  - localhost
+
+- mysql_db: name={{ mysql.database }} state=present login_user=root login_password={{ mysql.root_password }}
+  name: create databases
+
+- mysql_db: name={{ mysql.database }} state=import login_user=root login_password={{ mysql.root_password }} target=/vagrant/{{ mysql.dump }}
+  name: import dump
+  when: mysql.dump
+
+- mysql_user: name='' host={{ item }} state=absent login_user=root login_password={{ mysql.root_password }}
+  name: ensure anonymous users are not in the database
+  with_items:
+  - localhost
+  - '{{ current_hostname.stdout | lower }}'
+
+- mysql_user: name={{ mysql.user }} password={{ mysql.password }} priv={{ mysql.database }}.*:ALL state=present login_user=root login_password={{ mysql.root_password }}
+  name: create users
