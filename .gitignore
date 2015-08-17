@@ -40,7 +40,7 @@ web/blog/wp-content/wp-cache-config.php
 composer.phar
 
 # -- PHPUnit ------------------------------------------
-app/phpunit.xml  
+app/phpunit.xml
 
 # -- Editores -----------------------------------------
 # vim
@@ -109,3 +109,5 @@ Icon
 ._*
 .Spotlight-V100
 .Trashes
+
+!/.editorconfig
