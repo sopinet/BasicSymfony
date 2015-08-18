@@ -48,6 +48,9 @@ Create superAdmin user
 Change repository
 <pre>git remote set-url origin https://github.com/USERNAME/YOUREPOSITORY.git</pre>
 
+How to customize error pages overriding the default error templates
+<pre>[The Cookbook - Overriding the Default Error Templates](http://symfony.com/doc/current/cookbook/controller/error_pages.html#overriding-the-default-error-templates)</pre>
+
 That's all!
 
 ¿ERRORES? (TODO: Translate to English)
