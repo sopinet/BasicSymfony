@@ -28,6 +28,10 @@ Usage
 
 If the `vagrant-hostsupdater` plugin was installed you should be able to access to http://sopinet.local/app_dev.php/ , otherwise visit the address: http://192.168.33.99/app_dev.php/
 
+How to customize error pages overriding the default error templates
+
+[The Cookbook - Overriding the Default Error Templates](http://symfony.com/doc/current/cookbook/controller/error_pages.html#overriding-the-default-error-templates)
+
 Contributing
 ============
 
