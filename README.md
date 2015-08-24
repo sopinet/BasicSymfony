@@ -22,7 +22,7 @@ Installation
 
 Console
 <pre>cd /var/www/</pre>
-<pre>git clone --branch 1.0 https://github.com/sopinet/BasicSymfony.git YourProjectName</pre>
+<pre>git clone --branch 1.1 https://github.com/sopinet/BasicSymfony.git YourProjectName</pre>
 
 Change parameters.yml with your configuration database<br>
 
