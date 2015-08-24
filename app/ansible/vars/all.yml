@@ -9,7 +9,7 @@ mysql:
   dump: ''
   install: '1'
   password: symfony
-  root_password: root
+  root_password: ''
   user: symfony
 php:
   install: '1'
