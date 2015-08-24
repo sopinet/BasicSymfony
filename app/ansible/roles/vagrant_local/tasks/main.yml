@@ -1,0 +1,10 @@
+- name: set the hostname in /etc/hostname
+  shell: echo {{ vagrant_local.vm.hostname }} > /etc/hostname
+  when: vagrant_local.vm.hostname is defined
+
+- name: set the hostname
+  shell: hostname {{ vagrant_local.vm.hostname }}
+  when: vagrant_local.vm.hostname is defined
+
+- lineinfile: dest=/etc/hosts regexp='^127\.0\.0\.1' line='127.0.0.1 localhost {{ vagrant_local.vm.hostname }}' owner=root group=root mode=0644
+  name: update /etc/hosts

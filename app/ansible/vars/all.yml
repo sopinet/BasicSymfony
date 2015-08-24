@@ -1,0 +1,48 @@
+apache:
+  docroot: /var/www/web
+  install: '1'
+  servername: sopinet.local
+composer:
+  install: '1'
+mysql:
+  database: symfony
+  dump: ''
+  install: '1'
+  password: symfony
+  root_password: ''
+  user: symfony
+php:
+  install: '1'
+  packages:
+  - php5-cli
+  - php5-intl
+  - php5-mcrypt
+  - php5-curl
+  - php5-xsl
+  - php5-mysql
+  peclpackages:
+  - APCu
+  - PDO_MYSQL
+  ppa: php5-5.6
+server:
+  install: '1'
+  locale: en_US.UTF-8
+  packages:
+  - vim
+  - git
+  - imagemagick
+  - nodejs
+  - npm
+  timezone: Europe/London
+vagrant_local:
+  install: '1'
+  vm:
+    base_box: trusty64
+    hostname: sopinet.local
+    ip: 192.168.33.99
+    memory: '1024'
+    sharedfolder: ./
+    syncType: nfs
+    useVagrantCloud: '1'
+xdebug:
+  install: '1'

@@ -1,0 +1,14 @@
+# application tasks to be customized and to run after the main provision
+
+- name: share bin directory
+  lineinfile: dest=/home/vagrant/.bash_profile line='export PATH=$PATH:/var/www/bin' insertafter='EOF' regexp='export PATH=\$PATH:/var/www/bin' create=yes state=present
+
+- args:
+    chdir: /var/www/
+  name: install dependencies
+  shell: composer install -n --no-progress
+
+- args:
+    chdir: /var/www/
+  name: doctrine schema update
+  shell: php app/console -n doctrine:schema:update --force
