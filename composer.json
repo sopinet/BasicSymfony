@@ -46,7 +46,8 @@
         "knplabs/doctrine-behaviors": "~1.1",
         "hwi/oauth-bundle": "dev-master#d7caff8",
         "phpdocumentor/phpdocumentor": "2.*",
-        "willdurand/faker-bundle": "@stable"
+        "willdurand/faker-bundle": "@stable",
+        "doctrine/doctrine-migrations-bundle": "^1.0"
     },
     "require-dev": {
 

@@ -10,5 +10,5 @@
 
 - args:
     chdir: /var/www/
-  name: doctrine schema update
-  shell: php app/console -n doctrine:schema:update --force
+  name: apply doctrine migrations
+  shell: php app/console -n doctrine:migrations:migrate
