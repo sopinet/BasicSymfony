@@ -34,7 +34,7 @@ First installation (generate bundles)
 It required to you set your database (you need create it first)
 
 Update SCHEMA (for fos_user / sonata)
-<pre>sh scripts/update_schema.sh</pre>
+<pre>sh scripts/schema_update.sh</pre>
 
 Install assets
 <pre>sh scripts/assetic_install.sh</pre>
@@ -43,7 +43,7 @@ Clean caché
 <pre>sh scripts/cache_clear.sh</pre>
 
 Create superAdmin user
-<pre>sh scripts/create_superadmin.sh USER EMAIL@EMAIL.COM PLAIN_PASSWORD</pre>
+<pre>sh scripts/admin_create.sh USER EMAIL@EMAIL.COM PLAIN_PASSWORD</pre>
 
 Change repository
 <pre>git remote set-url origin https://github.com/USERNAME/YOUREPOSITORY.git</pre>
