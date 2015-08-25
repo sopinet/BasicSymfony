@@ -1,0 +1,12 @@
+hwi_oauth:
+  firewall_name: main
+  resource_owners:
+    facebook:
+      client_id: '%facebook_id%'
+      client_secret: '%facebook_secret%'
+      scope: email
+      type: facebook
+    google:
+      client_id: '%google_id%'
+      client_secret: '%google_secret%'
+      type: google

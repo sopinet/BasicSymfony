@@ -1,155 +1,142 @@
 imports:
-    - { resource: parameters.yml }
-    - { resource: security.yml }
-    - { resource: services.yml }
-    - { resource: ../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml }
+- resource: parameters.yml
+- resource: services.yml
+- resource: common/imports.php
 
 framework:
-    #esi:             ~
-    translator:      { fallback: "%locale%" }
-    secret:          "%secret%"
-    router:
-        resource: "%kernel.root_dir%/config/routing.yml"
-        strict_requirements: ~
-    form:            ~
-    csrf_protection: ~
-    validation:      { enable_annotations: true }
-    templating:
-        engines: ['twig']
-        #assets_version: SomeVersionScheme
-    default_locale:  "%locale%"
-    trusted_hosts:   ~
-    trusted_proxies: ~
-    session:
-        # handler_id set to null will use default session handler from php.ini
-        handler_id:  ~
-    fragments:       ~
-    http_method_override: true
+  csrf_protection: null
+  default_locale: '%locale%'
+  form: null
+  fragments: null
+  http_method_override: true
+  router:
+    resource: '%kernel.root_dir%/config/routing.yml'
+    strict_requirements: null
+  secret: '%secret%'
+  session:
+    handler_id: null
+  templating:
+    engines:
+    - twig
+  translator:
+    fallback: '%locale%'
+  trusted_hosts: null
+  trusted_proxies: null
+  validation:
+    enable_annotations: true
 
 # Twig Configuration
 twig:
-    debug:            "%kernel.debug%"
-    strict_variables: "%kernel.debug%"
-    form:
-        resources: ['bootstrap_3_layout.html.twig']
+  debug: '%kernel.debug%'
+  form:
+    resources:
+    - bootstrap_3_layout.html.twig
+  strict_variables: '%kernel.debug%'
 
 # Assetic Configuration
 assetic:
-    debug:          "%kernel.debug%"
-    use_controller: false
-    bundles:        [ AppBundle ]
-    #java: /usr/bin/java
-    filters:
-        cssrewrite: ~
-        #closure:
-        #    jar: "%kernel.root_dir%/Resources/java/compiler.jar"
-        #yui_css:
-        #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+  bundles:
+  - AppBundle
+  debug: '%kernel.debug%'
+  filters:
+    cssrewrite: null
+  use_controller: false
 
 # Doctrine Configuration
 doctrine:
-    dbal:
-        driver:   "%database_driver%"
-        host:     "%database_host%"
-        port:     "%database_port%"
-        dbname:   "%database_name%"
-        user:     "%database_user%"
-        password: "%database_password%"
-        charset:  UTF8
-        types:
-            json: Sonata\Doctrine\Types\JsonType
-        # if using pdo_sqlite as your database driver:
-        #   1. add the path in parameters.yml
-        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
-        #   2. Uncomment database_path in parameters.yml.dist
-        #   3. Uncomment next line:
-        #     path:     "%database_path%"
-
-    orm:
-        auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
+  dbal:
+    charset: UTF8
+    dbname: '%database_name%'
+    driver: '%database_driver%'
+    host: '%database_host%'
+    password: '%database_password%'
+    port: '%database_port%'
+    types:
+      json: Sonata\Doctrine\Types\JsonType
+    user: '%database_user%'
+  orm:
+    auto_generate_proxy_classes: '%kernel.debug%'
+    auto_mapping: true
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
+  host: '%mailer_host%'
+  password: '%mailer_password%'
+  spool:
+    type: memory
+  transport: '%mailer_transport%'
+  username: '%mailer_user%'
 
-# SonataAdmin
-sonata_admin:
-    security:
-        handler: sonata.admin.security.handler.role
-
-# FOS
-fos_user:
-    db_driver: orm
-    firewall_name: main # nombre anterior
-    user_class: Application\Sonata\UserBundle\Entity\User
-    group:
-        group_class:   Application\Sonata\UserBundle\Entity\Group
-        group_manager: sonata.user.orm.group_manager
-    service:
-        user_manager: sonata.user.orm.user_manager
-
-# SonataUser
-sonata_user:
-    security_acl: false
-    manager_type: orm # can be orm or mongodb
-    class:                  # Entity Classes
-        user:               Application\Sonata\UserBundle\Entity\User
-        group:              Application\Sonata\UserBundle\Entity\Group
+# Security Configuration
+security:
+  access_control:
+  - path: ^/login$
+    role: IS_AUTHENTICATED_ANONYMOUSLY
+  - path: ^/register
+    role: IS_AUTHENTICATED_ANONYMOUSLY
+  - path: ^/resetting
+    role: IS_AUTHENTICATED_ANONYMOUSLY
+  - path: ^/_wdt
+    role: IS_AUTHENTICATED_ANONYMOUSLY
+  - path: ^/_profiler
+    role: IS_AUTHENTICATED_ANONYMOUSLY
+  - path: ^/login$
+    role: IS_AUTHENTICATED_ANONYMOUSLY
+  - path: ^/admin/login$
+    role: IS_AUTHENTICATED_ANONYMOUSLY
+  - path: ^/admin/logout$
+    role: IS_AUTHENTICATED_ANONYMOUSLY
+  - path: ^/admin/login-check$
+    role: IS_AUTHENTICATED_ANONYMOUSLY
+  - path: ^/admin
+    role: ROLE_ADMIN
+  access_decision_manager:
+    strategy: unanimous
+  encoders:
+    FOS\UserBundle\Model\UserInterface: sha512
+  firewalls:
     admin:
-        user:
-            class: Application\Sonata\UserBundle\Admin\UserAdmin
-        group:
-            class: Application\Sonata\UserBundle\Admin\GroupAdmin
-
-# JSM Serializer
-jms_serializer:
-  metadata:
-    auto_detection: true
-    directories:
-      FOSUserBundle:
-        namespace_prefix: "FOS\\UserBundle"
-        path: "@ApplicationSonataUserBundle/Resources/config/serializer/fos"
-      SonataUserBundle:
-        namespace_prefix: "Sonata\\UserBundle"
-        path: "@ApplicationSonataUserBundle/Resources/config/serializer/sonata"
-      ApplicationSonataUserBundle:
-        namespace_prefix: "Sonata\\UserBundle"
-        path: "@ApplicationSonataUserBundle/Resources/config/serializer/"
-
-# Sonata Block
-sonata_block:
-    default_contexts: [cms]
-    blocks:
-        sonata.user.block.menu:
-        sonata.admin.block.admin_list:
-        sonata.block.service.text:
-        sonata.block.service.action:
-        sonata.block.service.rss:
-        sonata.block.service.tableinput:
-
-# FOS Rest API
-fos_rest:
-    routing_loader:
-        default_format: json
-
-# app/config/config.yml
-nelmio_api_doc: ~
-
-# HWIOAuthBundle
-hwi_oauth:
-    firewall_name: main
-    resource_owners:
-        facebook:
-            type: facebook
-            client_id: "%facebook_id%"
-            client_secret: "%facebook_secret%"
-            scope: "email"
-        google:
-            type: google
-            client_id: "%google_id%"
-            client_secret: "%google_secret%"
+      anonymous: true
+      form_login:
+        check_path: /admin/login_check
+        failure_path: null
+        login_path: /admin/login
+        provider: fos_userbundle
+        use_forward: false
+      logout:
+        path: /admin/logout
+      pattern: /admin(.*)
+    main:
+      anonymous: null
+      form_login:
+        check_path: /login_check
+        csrf_provider: form.csrf_provider
+        failure_path: null
+        login_path: /login
+        provider: fos_userbundle
+        use_forward: false
+      logout:
+        path: /logout
+      oauth:
+        default_target_path: /
+        failure_path: /login
+        login_path: /login
+        oauth_user_provider:
+          service: sopinet_user_provider
+        resource_owners:
+          facebook: /login/check-facebook
+          google: /login/check-google
+      pattern: ^/
+      switch_user: true
+  providers:
+    fos_userbundle:
+      id: fos_user.user_provider.username_email
+  role_hierarchy:
+    ROLE_ADMIN:
+    - ROLE_USER
+    - ROLE_SONATA_ADMIN
+    ROLE_SUPER_ADMIN:
+    - ROLE_ADMIN
+    - ROLE_ALLOWED_TO_SWITCH
+    SONATA:
+    - ROLE_SONATA_PAGE_ADMIN_PAGE_EDIT

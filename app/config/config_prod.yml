@@ -1,5 +1,6 @@
 imports:
-    - { resource: config.yml }
+- resource: config.yml
+- resource: prod/imports.php
 
 #framework:
 #    validation:
@@ -12,14 +13,14 @@ imports:
 #        query_cache_driver: apc
 
 monolog:
-    handlers:
-        main:
-            type:         fingers_crossed
-            action_level: error
-            handler:      nested
-        nested:
-            type:  stream
-            path:  "%kernel.logs_dir%/%kernel.environment%.log"
-            level: debug
-        console:
-            type:  console
+  handlers:
+    console:
+      type: console
+    main:
+      action_level: error
+      handler: nested
+      type: fingers_crossed
+    nested:
+      level: debug
+      path: '%kernel.logs_dir%/%kernel.environment%.log'
+      type: stream
