@@ -1,8 +1,6 @@
 {
-    "name": "symfony/framework-standard-edition",
     "license": "MIT",
     "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
         "psr-0": { "": "src/", "SymfonyStandard": "app/" }
     },
@@ -77,9 +75,6 @@
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
-        },
-        "branch-alias": {
-            "dev-master": "2.6-dev"
         }
     }
 }
