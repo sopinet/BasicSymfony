@@ -32,6 +32,20 @@ How to customize error pages overriding the default error templates
 
 [The Cookbook - Overriding the Default Error Templates](http://symfony.com/doc/current/cookbook/controller/error_pages.html#overriding-the-default-error-templates)
 
+### Database Migrations
+Database schema updates are executed using the [Doctrine Migrations library](https://github.com/doctrine/migrations), read the [DoctrineMigrationsBundle](https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html) documentation too.
+
+While developing you may use the `doctrine:schema:update` command, and when the source is ready for the deploy import a dump (a subset) of the production database and execute:
+```
+$ php app/console doctrine:migrations:diff
+$ php app/console doctrine:migrations:migrate -n
+```
+
+Anyway is recommended to:
+
+* use these two commands above also while developing
+* keep database migrations small
+
 Contributing
 ============
 
