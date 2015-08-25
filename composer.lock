@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a4e86966d4397de7c608e126fd91cce4",
+    "hash": "fd040370df26c775b7973bdb53ac3367",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -6113,11 +6113,11 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "friendsofsymfony/user-bundle": 20,
+        "hwi/oauth-bundle": 20,
         "sonata-project/admin-bundle": 20,
         "sonata-project/datagrid-bundle": 20,
         "sonata-project/user-bundle": 20,
-        "friendsofsymfony/user-bundle": 20,
-        "hwi/oauth-bundle": 20,
         "willdurand/faker-bundle": 0
     },
     "prefer-stable": false,
