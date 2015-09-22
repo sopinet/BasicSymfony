@@ -4,17 +4,24 @@ parameters:
 #    parameter_name: value
 
 services:
-    app.login_success_handler:
-        class:  AppBundle\Authentication\CheckUser
-        arguments:  ['@service_container', '@router']
-        tags:
-            - { name: 'monolog.logger', channel: 'security' }
+  apihelper:
+    arguments:
+    - '@doctrine'
+    - '@fos_rest.view_handler'
+    class: AppBundle\Services\ApiHelper
 
-    apihelper:
-        class: AppBundle\Services\ApiHelper
-        arguments: ["@doctrine", "@fos_rest.view_handler"]
+  app.login_success_handler:
+    arguments:
+    - '@service_container'
+    - '@router'
+    class: AppBundle\Authentication\CheckUser
+    tags:
+    - channel: security
+      name: monolog.logger
 
-    sopinet_user_provider:
-        class: AppBundle\Security\Core\User\FOSUBUserProvider
-        #this is the place where the properties are passed to the UserProvider - see config.yml
-        arguments: [@fos_user.user_manager, { facebook: facebookUid, google: gplusUid }]
+  sopinet_user_provider:
+    arguments:
+    - '@fos_user.user_manager'
+    - facebook: facebookUid
+      google: gplusUid
+    class: AppBundle\Security\Core\User\FOSUBUserProvider

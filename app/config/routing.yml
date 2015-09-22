@@ -1,57 +1,57 @@
 app:
-    resource: @AppBundle/Controller/
-    type:     annotation
+  resource: '@AppBundle/Controller/'
+  type: annotation
 
 hwi_oauth_redirect:
-    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
-    prefix:   /connect
+  prefix: /connect
+  resource: '@HWIOAuthBundle/Resources/config/routing/redirect.xml'
 
 hwi_oauth_login:
-    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
-    prefix:   /login
+  prefix: /login
+  resource: '@HWIOAuthBundle/Resources/config/routing/login.xml'
 
 facebook_login:
-    pattern: /login/check-facebook
+  pattern: /login/check-facebook
 
 google_login:
-    pattern: /login/check-google
+  pattern: /login/check-google
 
 # Sonata Admin
 admin:
-    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
-    prefix: /admin
+  prefix: /admin
+  resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
 
 _sonata_admin:
-    resource: .
-    type: sonata_admin
-    prefix: /admin
+  prefix: /admin
+  resource: .
+  type: sonata_admin
 # END Sonata Admin
 
 # SonataUser
 sonata_user:
-    resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
-    prefix: /admin
+  prefix: /admin
+  resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
 
 sonata_user_security:
-    resource: "@SonataUserBundle/Resources/config/routing/sonata_security_1.xml"
+  resource: '@SonataUserBundle/Resources/config/routing/sonata_security_1.xml'
 
 sonata_user_resetting:
-    resource: "@SonataUserBundle/Resources/config/routing/sonata_resetting_1.xml"
-    prefix: /resetting
+  prefix: /resetting
+  resource: '@SonataUserBundle/Resources/config/routing/sonata_resetting_1.xml'
 
 sonata_user_profile:
-    resource: "@SonataUserBundle/Resources/config/routing/sonata_profile_1.xml"
-    prefix: /profile
+  prefix: /profile
+  resource: '@SonataUserBundle/Resources/config/routing/sonata_profile_1.xml'
 
 sonata_user_register:
-    resource: "@SonataUserBundle/Resources/config/routing/sonata_registration_1.xml"
-    prefix: /register
+  prefix: /register
+  resource: '@SonataUserBundle/Resources/config/routing/sonata_registration_1.xml'
 
 sonata_user_change_password:
-    resource: "@SonataUserBundle/Resources/config/routing/sonata_change_password_1.xml"
-    prefix: /profile
+  prefix: /profile
+  resource: '@SonataUserBundle/Resources/config/routing/sonata_change_password_1.xml'
 # END SonataUser
 
 NelmioApiDocBundle:
-    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
-    prefix:   /api/doc
+  prefix: /api/doc
+  resource: '@NelmioApiDocBundle/Resources/config/routing.yml'

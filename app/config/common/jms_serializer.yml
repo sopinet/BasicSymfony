@@ -1,0 +1,13 @@
+jms_serializer:
+  metadata:
+    auto_detection: true
+    directories:
+      ApplicationSonataUserBundle:
+        namespace_prefix: 'Sonata\\UserBundle'
+        path: '@ApplicationSonataUserBundle/Resources/config/serializer/'
+      FOSUserBundle:
+        namespace_prefix: 'FOS\\UserBundle'
+        path: '@ApplicationSonataUserBundle/Resources/config/serializer/fos'
+      SonataUserBundle:
+        namespace_prefix: 'Sonata\\UserBundle'
+        path: '@ApplicationSonataUserBundle/Resources/config/serializer/sonata'

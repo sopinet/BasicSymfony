@@ -1,0 +1,10 @@
+sonata_block:
+  blocks:
+    sonata.admin.block.admin_list: null
+    sonata.block.service.action: null
+    sonata.block.service.rss: null
+    sonata.block.service.tableinput: null
+    sonata.block.service.text: null
+    sonata.user.block.menu: null
+  default_contexts:
+  - cms
