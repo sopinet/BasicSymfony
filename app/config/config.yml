@@ -131,6 +131,7 @@ sonata_block:
         sonata.block.service.action:
         sonata.block.service.rss:
         sonata.block.service.tableinput:
+        sonata.admin.block.search_result:
 
 # FOS Rest API
 fos_rest:
