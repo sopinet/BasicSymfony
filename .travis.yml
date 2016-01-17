@@ -1,10 +1,10 @@
 language: php
 
 before_script:
-  - composer self-update
-  - sh scripts/composer_install.sh
   - mysql -e 'drop database if exists symfony;'
   - mysql -e 'create database symfony;'
+  - composer self-update
+  - sh scripts/composer_install.sh
   - sh scripts/schema_update.sh
   - sh scripts/assetic_install.sh
   - sh scripts/cache_clear.sh
