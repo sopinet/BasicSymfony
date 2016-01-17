@@ -4,9 +4,14 @@ imports:
     - { resource: services.yml }
     - { resource: ../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml }
 
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: es
+
 framework:
     #esi:             ~
-    translator:      { fallback: "%locale%" }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -14,6 +19,7 @@ framework:
     form:            ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
+    #serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
@@ -30,34 +36,17 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-    form:
-        resources: ['bootstrap_3_layout.html.twig']
-
-# Assetic Configuration
-assetic:
-    debug:          "%kernel.debug%"
-    use_controller: false
-    bundles:        [ AppBundle ]
-    #java: /usr/bin/java
-    filters:
-        cssrewrite: ~
-        #closure:
-        #    jar: "%kernel.root_dir%/Resources/java/compiler.jar"
-        #yui_css:
-        #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
 
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver:   "%database_driver%"
+        driver:   pdo_mysql
         host:     "%database_host%"
         port:     "%database_port%"
         dbname:   "%database_name%"
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
-        types:
-            json: Sonata\Doctrine\Types\JsonType
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
@@ -67,6 +56,7 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 
 # Swiftmailer Configuration
@@ -77,79 +67,23 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-# SonataAdmin
-sonata_admin:
-    security:
-        handler: sonata.admin.security.handler.role
-
-# FOS
-fos_user:
-    db_driver: orm
-    firewall_name: main # nombre anterior
-    user_class: Application\Sonata\UserBundle\Entity\User
-    group:
-        group_class:   Application\Sonata\UserBundle\Entity\Group
-        group_manager: sonata.user.orm.group_manager
-    service:
-        user_manager: sonata.user.orm.user_manager
-
-# SonataUser
-sonata_user:
-    security_acl: false
-    manager_type: orm # can be orm or mongodb
-    class:                  # Entity Classes
-        user:               Application\Sonata\UserBundle\Entity\User
-        group:              Application\Sonata\UserBundle\Entity\Group
-    admin:
-        user:
-            class: Application\Sonata\UserBundle\Admin\UserAdmin
-        group:
-            class: Application\Sonata\UserBundle\Admin\GroupAdmin
-
-# JSM Serializer
-jms_serializer:
-  metadata:
-    auto_detection: true
-    directories:
-      FOSUserBundle:
-        namespace_prefix: "FOS\\UserBundle"
-        path: "@ApplicationSonataUserBundle/Resources/config/serializer/fos"
-      SonataUserBundle:
-        namespace_prefix: "Sonata\\UserBundle"
-        path: "@ApplicationSonataUserBundle/Resources/config/serializer/sonata"
-      ApplicationSonataUserBundle:
-        namespace_prefix: "Sonata\\UserBundle"
-        path: "@ApplicationSonataUserBundle/Resources/config/serializer/"
-
-# Sonata Block
-sonata_block:
-    default_contexts: [cms]
-    blocks:
-        sonata.user.block.menu:
-        sonata.admin.block.admin_list:
-        sonata.block.service.text:
-        sonata.block.service.action:
-        sonata.block.service.rss:
-        sonata.block.service.tableinput:
+# NelmioApiDoc
+nelmio_api_doc: ~
 
 # FOS Rest API
 fos_rest:
     routing_loader:
         default_format: json
 
-# app/config/config.yml
-nelmio_api_doc: ~
-
-# HWIOAuthBundle
-hwi_oauth:
+# FOS User
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    resource_owners:
-        facebook:
-            type: facebook
-            client_id: "%facebook_id%"
-            client_secret: "%facebook_secret%"
-            scope: "email"
-        google:
-            type: google
-            client_id: "%google_id%"
-            client_secret: "%google_secret%"
+    user_class: AppBundle\Entity\User
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]

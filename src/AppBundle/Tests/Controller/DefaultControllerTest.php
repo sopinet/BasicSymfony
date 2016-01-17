@@ -11,8 +11,7 @@ class DefaultControllerTest extends WebTestCase
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/');
-        
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertTrue($crawler->filter('html:contains("Homepage.")')->count() > 0);
+        $this->assertContains('Welcome to Symfony', $crawler->filter('#container h1')->text());
     }
 }
