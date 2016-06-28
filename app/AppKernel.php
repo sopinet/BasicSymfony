@@ -22,6 +22,10 @@ class AppKernel extends Kernel
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Sopinet\ApiHelperBundle\SopinetApiHelperBundle(),
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+            new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
 
             // Add your dependencies
             new Sonata\CoreBundle\SonataCoreBundle(),
@@ -38,6 +42,7 @@ class AppKernel extends Kernel
             new Sonata\AdminBundle\SonataAdminBundle(),
 
             new AppBundle\AppBundle(),
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
