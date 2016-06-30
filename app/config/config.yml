@@ -74,8 +74,15 @@ nelmio_api_doc: ~
 
 # FOS Rest API
 fos_rest:
+    disable_csrf_role: IS_AUTHENTICATED_ANONYMOUSLY
+    param_fetcher_listener: true
     routing_loader:
         default_format: json
+        include_format: false
+    view:
+        view_response_listener: true
+    serializer:
+        serialize_null: true
 
 # FOS User
 fos_user:
